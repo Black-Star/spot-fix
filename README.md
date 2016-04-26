@@ -1,2 +1,2 @@
 # spot-fix
-Display spot fixes around you
+This is a simple web application to locate spotfixes around you
