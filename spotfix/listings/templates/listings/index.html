@@ -1,0 +1,18 @@
+{% if spotfixes %}
+
+    {% for spotfix in spotfixes %}
+    <pre>
+
+            {{spotfix}}
+            <br/>
+            Date: {{spotfix.created}}
+            <br/>
+            <br/>
+            <br/>
+
+    </pre>
+    {% endfor %}
+
+{% else %}
+    <p>No upcoming spotfixes</p>
+{% endif %}
