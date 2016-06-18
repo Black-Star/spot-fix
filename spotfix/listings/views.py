@@ -1,13 +1,9 @@
-from rest_framework import generics
 from django.shortcuts import render
-# Create your views here.
-from rest_framework.decorators import authentication_classes
-from rest_framework.authentication import TokenAuthentication
-from rest_framework.response import Response
 from rest_framework import viewsets
+from rest_framework_gis.filters import DistanceToPointFilter
 
-from listings.serializers import SpotFixSerializer
-from listings.models import SpotFix
+from listings.serializers import SpotFixSerializer, LocationSerializer
+from listings.models import SpotFix, Location
 from rest_framework import pagination
 
 
@@ -21,6 +17,16 @@ class SpotFixList(viewsets.ModelViewSet):
     queryset = SpotFix.objects.all()
     serializer_class = SpotFixSerializer
     pagination_class = StandardResultsSetPagination
+
+
+class LocationList(viewsets.ModelViewSet):
+
+    queryset = SpotFix.objects.all()
+    serializer_class = SpotFixSerializer
+    distance_filter_field = 'point'
+    filter_backends = (DistanceToPointFilter, )
+    bbox_filter_include_overlapping = True
+    # Optional
 
 
 def index(request):

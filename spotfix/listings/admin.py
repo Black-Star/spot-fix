@@ -1,6 +1,6 @@
-from django.contrib import admin
+from django.contrib.gis import admin
 
-from listings.models import SpotFix
+from listings.models import SpotFix, Location
 # Register your models here.
 # admin.site.register(SpotFix)
 
@@ -12,4 +12,5 @@ class SpotFixAdmin(admin.ModelAdmin):
             return qs
         return qs.filter(owner=request.user)
 
-admin.site.register(SpotFix, SpotFixAdmin)
+admin.site.register(SpotFix)
+admin.site.register(Location)
