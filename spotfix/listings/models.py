@@ -1,13 +1,11 @@
 from __future__ import unicode_literals
 
 from django.contrib.gis.db import models
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
 
 class SpotFix(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE,
-                              related_name='spotfix')
     title = models.CharField(max_length=100)
     about_event = models.TextField()
     planned_date = models.DateTimeField()
