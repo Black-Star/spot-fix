@@ -24,6 +24,7 @@ class LocationList(viewsets.ModelViewSet):
     queryset = SpotFix.objects.all()
     serializer_class = SpotFixSerializer
     distance_filter_field = 'point'
+    pagination_class = StandardResultsSetPagination
     filter_backends = (DistanceToPointFilter, )
     bbox_filter_include_overlapping = True
     # Optional

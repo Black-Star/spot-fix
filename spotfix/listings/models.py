@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-
+from django.contrib.postgres.fields import JSONField
 from django.contrib.gis.db import models
 # from django.contrib.auth.models import User
 
@@ -9,7 +9,7 @@ class SpotFix(models.Model):
     title = models.CharField(max_length=100)
     about_event = models.TextField()
     planned_date = models.DateTimeField()
-    gear = models.TextField()
+    gear = JSONField()
     point = models.PointField(default=None)
     contact_number = models.CharField(max_length=18)
     address = models.TextField()
