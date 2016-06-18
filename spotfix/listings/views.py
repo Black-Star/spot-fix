@@ -24,7 +24,7 @@ class SpotFixList(viewsets.ReadOnlyModelViewSet):
     bbox_filter_include_overlapping = True
 
 
-@authentication_classes((TokenAuthentication,))
+# @authentication_classes((TokenAuthentication,))
 class LocationList(viewsets.ModelViewSet):
     queryset = SpotFix.objects.all()
     serializer_class = SpotFixSerializer
