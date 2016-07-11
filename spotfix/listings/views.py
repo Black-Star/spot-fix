@@ -32,3 +32,7 @@ class LocationList(viewsets.ModelViewSet):
     pagination_class = StandardResultsSetPagination
     filter_backends = (DistanceToPointFilter, )
     bbox_filter_include_overlapping = True
+
+
+def index(request):
+    return render(request, 'listings/index.html')
